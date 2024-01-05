@@ -1,0 +1,283 @@
+# TIC-TAC-TOE
+<!DOCTYPE html>
+<!-- saved from url=(0092)file:///C:/Users/sudhi/AppData/Local/Microsoft/Windows/INetCache/IE/ANAECO9G/weather[1].html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: grey;
+      text-align: center;
+    }
+    .container {
+      height: 70vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .game {
+      height: 70vmin;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5vmin;
+      border: 1px solid red;
+      width: 65vmin;
+      background-color: rgb(19, 81, 83);
+    }
+    .box {
+      height: 20vmin;
+      width: 20vmin;
+      border-radius: 1rem;
+      border: none;
+      box-shadow: 0 0 1rem rgb(0, 0, 0.1);
+      font-size: 8vmin;
+      color: red;
+      background-color: rgb(215, 202, 184);
+    }
+    .msg{
+color: rgb(215, 202, 184);
+font-style: italic;
+font-weight:600;
+font-family: Georgia, 'Times New Roman', Times, serif;
+margin-top: 1rem;
+height: 2rem;
+font-size: 30px;
+
+    }
+    .reset {
+      padding: 1rem;
+      font-size: 1.25rem;
+      background-color: #191913;
+      color: white;
+      border-radius: 1rem;
+      border: none;
+    }
+    .new {
+      padding: .75rem;
+      font-size: 1rem;
+      background-color: #191913;
+      color: white;
+      border-radius: 1rem;
+      border: none;
+      margin-top: 2rem;
+      
+
+    }
+    h1{
+
+padding: 1rem;
+font-size: 1.5rem;
+font-family: Georgia, 'Times New Roman', Times, serif;
+color: cornsilk;
+
+
+    }
+    .score{
+      color:white;
+      margin-bottom: 2rem;
+      height: 2rem;
+     margin-top: 2rem;
+      display: flex;
+      justify-content: space-around;
+    }
+    .x{
+color:red;
+font-weight: 1000;
+
+height: 2rem;
+width: 5rem;
+font-size: 1.5rem;
+
+
+
+    }
+    .y{
+color:red;
+font-weight: 1000;
+height: 2rem;
+width: 5rem;
+font-size: 1.5rem;
+
+
+
+    }
+    .scoreX{
+color: azure;
+
+
+    }
+    .score0{
+color: azure;
+
+
+    }
+    
+    
+    
+  </style></head>
+  
+
+  <body>
+    <main>
+
+      <h1>Tic-Tac-Toe</h1>
+      <div class="msg"></div>
+
+            <button class="new">NEW BUTTON</button>
+      <div class="container">
+        <div class="game">
+          <button class="box"></button>
+          <button class="box" disabled="">0</button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+          <button class="box"></button>
+        </div>
+      </div>
+      <button class="reset">RESET GAME</button>
+
+      <div class="score">
+
+
+
+<div class="x">X
+  <div class="scoreX">
+
+  </div>
+</div>
+
+<div class="y">0
+  <div class="score0">
+
+  </div>
+</div>
+
+      </div>
+
+    </main>
+    <script>
+      let scores=document.querySelector(".score");
+      let scoresX=document.querySelector(".scoreX");
+      let scoresO=document.querySelector(".score0");
+
+      let boxes = document.querySelectorAll(".box");
+      let reset = document.querySelector(".reset");
+      let turn0 = true;
+      let msgs = document.querySelector(".msg");
+      let news = document.querySelector(".new");
+      let rests = document.querySelector(".reset");
+      const winP = [
+        [0, 1, 2],
+        [0, 3, 6],
+        [0, 4, 8],
+        [1, 4, 7],
+        [2, 5, 8],
+        [2, 4, 6],
+        [3, 4, 5],
+        [6, 7, 8],
+      ];
+      const disb = () => {
+        for (let box of boxes) {
+          box.disabled = true;
+        }
+      };
+      const enb = () => {
+        for (let box of boxes) {
+          box.disabled = false;
+          box.innerText=" ";
+        }
+      };
+
+      const restg = () => {
+        turn0 = true;
+        enb();
+        msgs.innerText="";
+        //scores.innerText="";
+      };
+      const rest = () => {
+        turn0 = true;
+        enb();
+        msgs.innerText="";
+        scoresX.innerText="";
+        scoresO.innerText="";
+        count=0;
+        count1=0;
+
+      };
+
+      boxes.forEach((box) => {
+        box.addEventListener("click", () => {
+          if (turn0) {
+            box.innerText = "0";
+            turn0 = false;
+          } else {
+            box.innerText = "X";
+            turn0 = true;
+          }
+          box.disabled = true;
+          checkWinner();
+        });
+      });
+      const checkWinner = () => {
+        for (let pattern of winP) {
+          let ps1 = boxes[pattern[0]].innerText;
+          let ps2 = boxes[pattern[1]].innerText;
+          let ps3 = boxes[pattern[2]].innerText;
+
+          if (ps1 != "" && ps2 != "" && ps3 != "") {
+            if (ps1 === ps2 && ps2 === ps3) {
+              disb();
+            scor(ps1);
+              
+win(ps1);              
+            }
+
+          
+
+            
+
+          }
+        }
+      };
+      let count=0;
+      let count1=0
+      const scor=(ps1)=>{
+if(ps1==="0"){
+count++;
+}
+else{
+  count1++;
+}
+scoresO.innerText=count;
+scoresX.innerText=count1;
+
+      }
+
+      const win=(ps1)=>{
+        msgs.innerText = `Congrats!Winner is ${ps1} `;
+
+
+      }
+
+
+
+
+
+      
+      
+      news.addEventListener("click", rest);
+      rests.addEventListener("click", restg);
+    </script>
+  
+
+</body></html>
