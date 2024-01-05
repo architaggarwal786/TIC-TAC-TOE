@@ -1,0 +1,98 @@
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: grey;
+        text-align: center;
+      }
+      .container {
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .game {
+        height: 70vmin;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5vmin;
+        border: 1px solid red;
+        width: 65vmin;
+        background-color: rgb(19, 81, 83);
+      }
+      .box {
+        height: 20vmin;
+        width: 20vmin;
+        border-radius: 1rem;
+        border: none;
+        box-shadow: 0 0 1rem rgb(0, 0, 0.1);
+        font-size: 8vmin;
+        color: red;
+        background-color: rgb(215, 202, 184);
+      }
+      .msg {
+        color: rgb(215, 202, 184);
+        font-style: italic;
+        font-weight: 600;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        margin-top: 1rem;
+        height: 2rem;
+        font-size: 30px;
+      }
+      .reset {
+        padding: 1rem;
+        font-size: 1.25rem;
+        background-color: #191913;
+        color: white;
+        border-radius: 1rem;
+        border: none;
+      }
+      .new {
+        padding: 0.75rem;
+        font-size: 1rem;
+        background-color: #191913;
+        color: white;
+        border-radius: 1rem;
+        border: none;
+        margin-top: 2rem;
+      }
+      h1 {
+        padding: 1rem;
+        font-size: 1.5rem;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        color: cornsilk;
+      }
+      .score {
+        color: white;
+        margin-bottom: 2rem;
+        height: 2rem;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-around;
+      }
+      .x {
+        color: red;
+        font-weight: 1000;
+
+        height: 2rem;
+        width: 5rem;
+        font-size: 1.5rem;
+      }
+      .y {
+        color: red;
+        font-weight: 1000;
+        height: 2rem;
+        width: 5rem;
+        font-size: 1.5rem;
+      }
+      .scoreX {
+        color: azure;
+      }
+      .score0 {
+        color: azure;
+      }
+    </style>
